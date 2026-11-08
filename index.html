@@ -1,0 +1,1603 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f1e5">
+  <title>Portfolio | Lê Đặng Thảo Ngọc</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;500;600;700;800&family=Kalam:wght@300;400;700&family=Nunito:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper: #f7f1e5;
+      --paper-dark: #eee4d2;
+      --white: #fffdf7;
+      --red: #d94d32;
+      --red-dark: #b83b27;
+      --ink: #292522;
+      --muted: #777067;
+      --line: #dfd4c3;
+      --yellow: #f4d77b;
+      --green: #687c60;
+      --shadow: 5px 6px 0 rgba(68, 49, 32, .09);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 85px;
+    }
+
+    body {
+      background-color: var(--paper);
+      color: var(--ink);
+      font-family: "Nunito", sans-serif;
+      font-size: 16px;
+      line-height: 1.75;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 10;
+      opacity: .12;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.16'/%3E%3C/svg%3E");
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 48px));
+      margin: auto;
+    }
+
+    .handwriting {
+      font-family: "Kalam", cursive;
+    }
+
+    .mono {
+      font-family: "DM Mono", monospace;
+    }
+
+    /* NAVIGATION */
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247, 241, 229, .94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav-inner {
+      width: min(1120px, calc(100% - 48px));
+      min-height: 72px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .logo {
+      font-family: "Kalam", cursive;
+      color: var(--red);
+      font-size: 23px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+      font-weight: 500;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--red);
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 0;
+      background: none;
+      color: var(--red);
+      font-size: 26px;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      min-height: 650px;
+      padding: 85px 0 100px;
+      display: flex;
+      align-items: center;
+      position: relative;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-kicker {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid var(--red);
+      border-radius: 30px;
+      color: var(--red);
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+      margin-bottom: 24px;
+      transform: rotate(-2deg);
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 7vw, 82px);
+      line-height: 1.08;
+      font-weight: 900;
+      letter-spacing: -3px;
+    }
+
+    .hero h1 span {
+      color: var(--red);
+      font-family: "Kalam", cursive;
+      font-weight: 700;
+      letter-spacing: -1px;
+    }
+
+    .hero-description {
+      max-width: 520px;
+      margin-top: 25px;
+      color: #625c53;
+      font-size: 17px;
+      line-height: 1.9;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      padding: 12px 22px;
+      border: 1px solid var(--red);
+      border-radius: 4px;
+      font-family: "DM Mono", monospace;
+      font-size: 12px;
+      transition: .2s;
+    }
+
+    .btn-primary {
+      color: white;
+      background: var(--red);
+    }
+
+    .btn-primary:hover {
+      background: var(--red-dark);
+      transform: translateY(-3px);
+    }
+
+    .btn-outline {
+      color: var(--red);
+    }
+
+    .btn-outline:hover {
+      background: #f5e1d7;
+    }
+
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .photo-frame {
+      width: min(330px, 90%);
+      padding: 13px 13px 48px;
+      background: var(--white);
+      box-shadow: 8px 10px 0 #e3d5c1;
+      transform: rotate(4deg);
+      position: relative;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 370px;
+      object-fit: cover;
+      background: var(--paper-dark);
+      display: block;
+    }
+
+    .photo-caption {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      font-family: "Kalam", cursive;
+      font-size: 19px;
+      color: var(--red);
+    }
+
+    .sticker {
+      position: absolute;
+      padding: 10px 15px;
+      background: var(--yellow);
+      font-family: "Kalam", cursive;
+      font-size: 17px;
+      box-shadow: var(--shadow);
+    }
+
+    .sticker-one {
+      top: 15px;
+      right: -25px;
+      transform: rotate(9deg);
+    }
+
+    .sticker-two {
+      bottom: 30px;
+      left: -30px;
+      background: #dce5d3;
+      transform: rotate(-8deg);
+    }
+
+    .hero-star {
+      position: absolute;
+      color: var(--red);
+      font-size: 40px;
+    }
+
+    .star-one {
+      top: -45px;
+      left: 10px;
+    }
+
+    .star-two {
+      bottom: -35px;
+      right: 10px;
+    }
+
+    /* GENERAL SECTION */
+
+    .section {
+      padding: 95px 0;
+      border-top: 1px dashed #cfc1ad;
+      position: relative;
+    }
+
+    .section-top {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 25px;
+      color: var(--red);
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+      letter-spacing: 1px;
+    }
+
+    .section-title {
+      font-size: clamp(38px, 5vw, 57px);
+      line-height: 1.2;
+      letter-spacing: -1.5px;
+      margin-bottom: 40px;
+      font-weight: 900;
+    }
+
+    .section-title em {
+      color: var(--red);
+      font-family: "Kalam", cursive;
+      font-style: normal;
+    }
+
+    .section-intro {
+      max-width: 720px;
+      color: #625c53;
+      font-size: 17px;
+      line-height: 1.95;
+      margin-top: -18px;
+      margin-bottom: 35px;
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .about-text p {
+      margin-bottom: 17px;
+      color: #514b43;
+      font-size: 17px;
+    }
+
+    .about-note {
+      padding: 25px;
+      background: #f1e5d3;
+      border-left: 4px solid var(--red);
+      transform: rotate(-1deg);
+    }
+
+    .about-note h3 {
+      color: var(--red);
+      font-family: "Kalam", cursive;
+      font-size: 24px;
+      margin-bottom: 12px;
+    }
+
+    .info-list {
+      list-style: none;
+    }
+
+    .info-list li {
+      padding: 8px 0;
+      border-bottom: 1px dashed #cbbda9;
+      font-size: 15px;
+    }
+
+    .info-list strong {
+      color: var(--red-dark);
+    }
+
+    .interest-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 22px;
+    }
+
+    .tag {
+      padding: 6px 12px;
+      border: 1px solid #cbbda9;
+      border-radius: 30px;
+      font-size: 13px;
+      background: var(--white);
+    }
+
+    /* JOURNEY */
+
+    .timeline {
+      max-width: 850px;
+      margin: 0 auto;
+      position: relative;
+    }
+
+    .timeline::before {
+      content: "";
+      position: absolute;
+      left: 115px;
+      top: 10px;
+      bottom: 10px;
+      width: 1px;
+      background: #d7b7a7;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 95px 1fr;
+      gap: 40px;
+      margin-bottom: 35px;
+      position: relative;
+    }
+
+    .timeline-date {
+      color: var(--red);
+      font-family: "DM Mono", monospace;
+      font-size: 12px;
+      text-align: right;
+      padding-top: 5px;
+    }
+
+    .timeline-content {
+      background: var(--white);
+      padding: 22px 25px;
+      border: 1px solid #e5d8c6;
+      box-shadow: 3px 4px 0 #e8ddcc;
+      position: relative;
+    }
+
+    .timeline-content::before {
+      content: "";
+      position: absolute;
+      left: -49px;
+      top: 22px;
+      width: 13px;
+      height: 13px;
+      background: var(--red);
+      border: 4px solid var(--paper);
+      border-radius: 50%;
+    }
+
+    .timeline-content h3 {
+      font-size: 19px;
+      margin-bottom: 7px;
+    }
+
+    .timeline-content p {
+      color: #625c53;
+      font-size: 15px;
+    }
+
+    .role-label {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 4px 10px;
+      background: #f7e6dc;
+      color: var(--red-dark);
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+    }
+
+    /* ACHIEVEMENTS */
+
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .skill-card {
+      position: relative;
+      min-height: 310px;
+      padding: 27px 24px;
+      background: var(--white);
+      border: 1px solid #e5d8c6;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .skill-card:nth-child(2) {
+      transform: translateY(14px) rotate(1deg);
+    }
+
+    .skill-card:nth-child(1) {
+      transform: rotate(-1deg);
+    }
+
+    .skill-card:nth-child(3) {
+      transform: rotate(1deg);
+    }
+
+    .skill-no {
+      color: var(--red);
+      font-family: "DM Mono", monospace;
+      font-size: 12px;
+    }
+
+    .skill-card h3 {
+      margin: 15px 0;
+      font-size: 18px;
+      line-height: 1.4;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-direction: column;
+      gap: 11px;
+      color: #5d564d;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .skill-list span::before {
+      content: "✳ ";
+      color: var(--red);
+    }
+
+    .red-card {
+      background: var(--red);
+      color: white;
+    }
+
+    .red-card .skill-no,
+    .red-card .skill-list span::before {
+      color: #ffe0a6;
+    }
+
+    .red-card .skill-list {
+      color: #fff5ed;
+    }
+
+    .card-doodle {
+      position: absolute;
+      right: 15px;
+      bottom: 0;
+      color: rgba(217, 77, 50, .16);
+      font-size: 70px;
+    }
+
+    .red-card .card-doodle {
+      color: rgba(255,255,255,.17);
+    }
+
+    .gpa-display {
+      margin: 18px 0;
+      padding: 15px;
+      background: #fff6e7;
+      border: 1px dashed #d6a18b;
+    }
+
+    .gpa-display span {
+      display: block;
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+      letter-spacing: 1px;
+    }
+
+    .gpa-display strong {
+      color: var(--red);
+      font-size: 48px;
+      line-height: 1.3;
+    }
+
+    .gpa-display small {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .academic-card .skill-list {
+      margin-bottom: 15px;
+    }
+
+    .transcript-preview {
+      display: block;
+      margin-top: 17px;
+      padding: 9px;
+      background: white;
+      border: 1px solid #e6d8c5;
+      box-shadow: 3px 4px 0 #e9d9c6;
+      transform: rotate(-1deg);
+    }
+
+    .transcript-preview img {
+      display: block;
+      width: 100%;
+      height: 130px;
+      object-fit: cover;
+      object-position: top;
+      background: #eee4d2;
+    }
+
+    .transcript-preview span {
+      display: block;
+      margin-top: 8px;
+      color: var(--red);
+      text-align: center;
+      font-family: "DM Mono", monospace;
+      font-size: 10px;
+    }
+
+    .tiny-hint {
+      margin-top: 45px;
+      text-align: center;
+      font-family: "Kalam", cursive;
+      font-size: 20px;
+      color: var(--muted);
+    }
+
+    /* PERSONAL STRENGTHS */
+
+    .strength-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px;
+    }
+
+    .strength-item {
+      padding: 25px;
+      border: 1px dashed #cbbda9;
+      background: rgba(255, 253, 247, .55);
+    }
+
+    .strength-item .icon {
+      font-size: 27px;
+      color: var(--red);
+    }
+
+    .strength-item h3 {
+      margin: 10px 0;
+      font-size: 19px;
+    }
+
+    .strength-item p {
+      color: #625c53;
+      font-size: 15px;
+    }
+
+    /* PERSPECTIVE */
+
+    .quote-box {
+      background: #eee3d2;
+      padding: 35px;
+      margin-bottom: 35px;
+      text-align: center;
+      transform: rotate(-.7deg);
+    }
+
+    .quote-box p {
+      color: var(--red);
+      font-family: "Kalam", cursive;
+      font-size: clamp(27px, 4vw, 39px);
+      line-height: 1.5;
+    }
+
+    .perspective-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 22px;
+    }
+
+    .perspective-card {
+      padding: 25px;
+      background: var(--white);
+      border: 1px solid #e5d8c6;
+    }
+
+    .perspective-card h3 {
+      color: var(--red);
+      font-size: 18px;
+      margin-bottom: 12px;
+    }
+
+    .perspective-card p {
+      color: #5d564d;
+      font-size: 15px;
+    }
+
+    /* LEADERSHIP */
+
+    .leadership {
+      background: #292522;
+      color: #fff8ec;
+      padding: 80px 0;
+      margin-top: 25px;
+    }
+
+    .leadership .section-top {
+      color: #f4bd8c;
+    }
+
+    .leadership .section-title {
+      color: #fff8ec;
+    }
+
+    .leadership .section-title em {
+      color: #f4bd8c;
+    }
+
+    .leadership-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    .leadership-content p {
+      color: #e6ddd0;
+      font-size: 16px;
+      margin-bottom: 17px;
+    }
+
+    .leadership-points {
+      list-style: none;
+    }
+
+    .leadership-points li {
+      padding: 14px 0;
+      border-bottom: 1px dashed #6c6258;
+      color: #f7e8d6;
+    }
+
+    .leadership-points li::before {
+      content: "✳ ";
+      color: #f4bd8c;
+    }
+
+    .leadership-slogan {
+      margin-top: 45px;
+      text-align: center;
+      font-family: "Kalam", cursive;
+      font-size: clamp(28px, 4vw, 42px);
+      color: #f4bd8c;
+    }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 35px;
+    }
+
+    .contact-note {
+      padding: 25px;
+      background: #f0e4d1;
+      transform: rotate(-1deg);
+    }
+
+    .contact-note h3 {
+      color: var(--red);
+      font-family: "Kalam", cursive;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      justify-content: center;
+    }
+
+    .contact-info a,
+    .contact-info p {
+      padding-bottom: 12px;
+      border-bottom: 1px dashed #cbbda9;
+      font-size: 15px;
+    }
+
+    .contact-info strong {
+      color: var(--red);
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 30px 0;
+      border-top: 1px solid var(--line);
+      text-align: center;
+    }
+
+    footer p {
+      color: var(--muted);
+      font-family: "DM Mono", monospace;
+      font-size: 11px;
+    }
+
+    footer .footer-name {
+      color: var(--red);
+      font-family: "Kalam", cursive;
+      font-size: 23px;
+      margin-bottom: 5px;
+    }
+
+    /* BACK TO TOP */
+
+    .back-top {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 42px;
+      height: 42px;
+      display: grid;
+      place-items: center;
+      background: var(--red);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: .2s;
+      z-index: 15;
+    }
+
+    .back-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 850px) {
+      .hero-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+      }
+
+      .skill-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .skill-card:nth-child(2) {
+        transform: none;
+      }
+
+      .skill-card:nth-child(3) {
+        grid-column: 1 / -1;
+      }
+    }
+
+    @media (max-width: 650px) {
+      .container,
+      .nav-inner {
+        width: min(100% - 32px, 1120px);
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 72px;
+        left: 0;
+        right: 0;
+        padding: 20px 25px;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 18px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .hero {
+        padding: 65px 0 75px;
+      }
+
+      .hero-grid,
+      .about-grid,
+      .leadership-content,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero h1 {
+        font-size: 53px;
+      }
+
+      .hero-visual {
+        margin: 25px 0;
+      }
+
+      .photo-frame {
+        width: 260px;
+      }
+
+      .photo-frame img {
+        height: 300px;
+      }
+
+      .section {
+        padding: 70px 0;
+      }
+
+      .section-top {
+        font-size: 9px;
+      }
+
+      .timeline::before {
+        left: 7px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding-left: 28px;
+        margin-bottom: 28px;
+      }
+
+      .timeline-date {
+        text-align: left;
+      }
+
+      .timeline-content::before {
+        left: -28px;
+        top: 5px;
+      }
+
+      .skill-grid,
+      .strength-grid,
+      .perspective-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skill-card:nth-child(1),
+      .skill-card:nth-child(2),
+      .skill-card:nth-child(3) {
+        transform: none;
+        grid-column: auto;
+      }
+
+      .quote-box {
+        padding: 25px 18px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="logo">Ngọc's Portfolio ✳</a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Mở menu">
+        ☰
+      </button>
+
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">ABOUT ME</a></li>
+        <li><a href="#journey">MY JOURNEY</a></li>
+        <li><a href="#achievements">ACHIEVEMENTS</a></li>
+        <li><a href="#strengths">MY STRENGTHS</a></li>
+        <li><a href="#perspective">MY PERSPECTIVE</a></li>
+        <li><a href="#leadership">LEADERSHIP</a></li>
+        <li><a href="#contact">CONTACT</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+      <div class="container hero-grid">
+
+        <div>
+          <span class="hero-kicker">PERSONAL PORTFOLIO · 2026</span>
+
+          <h1>
+            Hello,<br>
+            I'm <span>Thảo Ngọc.</span>
+          </h1>
+
+          <p class="hero-description">
+            Xin chào! Mình là Lê Đặng Thảo Ngọc, sinh viên ngành
+            Công nghệ Thông tin tại Trường Đại học Văn Lang.
+            Đây là nơi mình chia sẻ về bản thân, hành trình tham gia
+            các hoạt động Đoàn – Hội và những điều mình mong muốn
+            đóng góp trong tương lai.
+          </p>
+
+          <div class="hero-buttons">
+            <a href="#about" class="btn btn-primary">GET TO KNOW ME ↗</a>
+            <a href="#journey" class="btn btn-outline">MY JOURNEY</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <span class="hero-star star-one">✳</span>
+
+          <div class="photo-frame">
+            <img src="./image.jpg" alt="Ảnh chân dung">
+            <div class="photo-caption">a little piece of me ♡</div>
+          </div>
+
+          <div class="sticker sticker-one">Nice to meet you!</div>
+          <div class="sticker sticker-two">Keep growing ✿</div>
+
+          <span class="hero-star star-two">✳</span>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ABOUT ME -->
+    <section class="section" id="about">
+      <div class="container">
+
+        <div class="section-top">
+          <span>01 / ABOUT ME</span>
+          <span>A LITTLE INTRODUCTION</span>
+        </div>
+
+        <h2 class="section-title">
+          Một chút về <em>mình.</em>
+        </h2>
+
+        <div class="about-grid">
+
+          <div class="about-text">
+            <p>
+              Mình là Lê Đặng Thảo Ngọc, hiện đang là sinh viên ngành
+              Công nghệ Thông tin tại Trường Đại học Văn Lang.
+            </p>
+
+            <p>
+              Trong quá trình học tập tại trường, mình không chỉ
+              quan tâm đến việc phát triển kiến thức chuyên môn mà
+              còn mong muốn được trải nghiệm, kết nối và học hỏi
+              thông qua các hoạt động tập thể.
+            </p>
+
+            <p>
+              Với mình, mỗi chương trình tham gia đều là một cơ hội
+              để thử sức ở những vai trò mới, rèn luyện kỹ năng và
+              hiểu hơn về giá trị của tinh thần trách nhiệm,
+              sự sẻ chia và làm việc cùng nhau.
+            </p>
+
+            <p>
+              <strong>Tính cách:</strong> Hòa đồng, trách nhiệm, chủ động, ham học hỏi và thích kết nối với mọi người.
+            </p>
+
+            <p>
+              <strong>Kỹ năng:</strong> Photoshop cơ bản, Canva, Microsoft Office, làm việc nhóm, tổ chức sự kiện và giao tiếp.
+            </p>
+          </div>
+
+          <div class="about-note">
+            <h3>Quick facts about me ✿</h3>
+
+            <ul class="info-list">
+              <li><strong>Họ và tên:</strong> Lê Đặng Thảo Ngọc</li>
+              <li><strong>Trường:</strong> Đại học Văn Lang</li>
+              <li><strong>Ngành học:</strong> Công nghệ Thông tin</li>
+              <li><strong>Khóa học:</strong> K29 - 71K29CNTT15</li>
+              <li><strong>Đơn vị đang hỗ trợ tại trường:</strong> Viện đào tạo Quốc tế</li>
+              <li><strong>Định hướng:</strong> Học hỏi thêm kinh nghiệm và được thử ở nhiều vị trí khác nhau</li>
+            </ul>
+
+            <div class="interest-tags">
+              <span class="tag">Teamwork</span>
+              <span class="tag">Volunteering</span>
+              <span class="tag">Learning</span>
+              <span class="tag">Connecting</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- MY JOURNEY -->
+    <section class="section" id="journey">
+      <div class="container">
+
+        <div class="section-top">
+          <span>02 / MY JOURNEY</span>
+          <span>ACTIVITIES & EXPERIENCES</span>
+        </div>
+
+        <h2 class="section-title">
+          Hành trình <em>trải nghiệm.</em>
+        </h2>
+
+        <p class="section-intro">
+          Mỗi hoạt động là một trải nghiệm khác nhau, giúp mình
+          học cách phối hợp, thích nghi và đóng góp vào những
+          mục tiêu chung.
+        </p>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-date">05/2026 – NOW</div>
+            <div class="timeline-content">
+              <h3>Viện đào tạo Quốc tế - Văn Lang Global School</h3>
+              <p>
+                Tham gia hỗ trợ các chương trình và hoạt động
+                của Viện Quốc tế, hỗ trợ các bạn sinh viên quốc tế trong quá trình học tập.
+              </p>
+              <span class="role-label">CỘNG TÁC VIÊN</span>
+            </div>
+          </div>
+
+            <div class="timeline-item">
+            <div class="timeline-date">2024 – 2026</div>
+            <div class="timeline-content">
+              <h3>CLB Công tác Xã hội</h3>
+              <p>
+                Tham gia các hoạt động và chương trình của CLB,
+                có cơ hội kết nối với mọi người, lan tỏa tinh thần
+                sẻ chia và đóng góp cho cộng đồng.
+              </p>
+              <span class="role-label">THÀNH VIÊN</span>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2025 – 2026</div>
+            <div class="timeline-content">
+              <h3>Chương trình Chào đón Tân sinh viên</h3>
+              <p>
+                Tham gia hỗ trợ hoạt động điều phối và F&B ở ngày hội chào đón tân sinh viên.
+              </p>
+              <span class="role-label">CỘNG TÁC VIÊN</span>
+            </div>
+          </div>
+
+            <div class="timeline-item">
+            <div class="timeline-date">Khóa K32 – K33</div>
+            <div class="timeline-content">
+              <h3>Chương trình nhập học</h3>
+              <p>
+                Tham gia hỗ trợ sinh viên khóa mới trong quá trình
+                nhập học, hướng dẫn, điều phối và giải đáp những thông tin
+                cần thiết khi các bạn bắt đầu hành trình tại Văn Lang.
+              </p>
+              <span class="role-label">CỘNG TÁC VIÊN</span>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">2025 – 2026</div>
+            <div class="timeline-content">
+              <h3>Lễ Tốt nghiệp</h3>
+              <p>
+                Tham gia hỗ trợ công tác điều phối, hướng dẫn và
+                phối hợp trong các hoạt động của chương trình.
+              </p>
+              <span class="role-label">CỘNG TÁC VIÊN</span>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date"></div>
+            <div class="timeline-content">
+              <h3>Chương trình Hiến máu tình nguyện</h3>
+              <p>
+                Hỗ trợ tổ chức các chương trình hiến máu
+                tình nguyện, góp phần lan tỏa thông điệp nhân văn và ý nghĩa của việc hiến máu cứu người.
+              </p>
+              <span class="role-label">BAN TỔ CHỨC</span>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-date">12/2025</div>
+            <div class="timeline-content">
+              <h3>Điều Ước Giáng Sinh 7</h3>
+              <p>
+                Tham gia ban tổ chức chương trình của CLB Công tác
+                Xã hội, cùng các thành viên thực hiện hoạt động
+                mang đến niềm vui và sự sẻ chia trong mùa Giáng sinh.
+              </p>
+              <span class="role-label">BAN TỔ CHỨC</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ACHIEVEMENTS -->
+    <section class="section" id="achievements">
+      <div class="container">
+
+        <div class="section-top">
+          <span>03 / ACHIEVEMENTS</span>
+          <span>HỌC TẬP & HOẠT ĐỘNG PHONG TRÀO</span>
+        </div>
+
+        <h2 class="section-title">
+          Nỗ lực hôm nay,<br>
+          <em>thành quả ngày mai.</em>
+        </h2>
+
+        <div class="skill-grid">
+
+          <!-- ACADEMIC -->
+          <article class="skill-card academic-card">
+            <span class="skill-no">01</span>
+            <h3>KẾT QUẢ HỌC TẬP</h3>
+
+            <div class="gpa-display">
+              <span>GPA TÍCH LŨY</span>
+              <strong>3.40</strong>
+              <small>/ 4.00</small>
+            </div>
+
+            <div class="skill-list">
+              <span>Điểm trung bình học kỳ gần nhất: 3.40</span>
+              <span>Xếp loại học lực: Giỏi</span>
+            </div>
+
+            <a class="transcript-preview"
+              href="https://drive.google.com/file/d/1JHzh2E-E8CiUQuJGKEItBoQyr8tWt2og/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer">
+
+              <div class="drive-preview">
+                <span class="drive-button">Xem bảng điểm ↗</span>
+              </div>
+
+            </a>
+
+            <div class="card-doodle">✳</div>
+          </article>
+
+          <!-- SCHOLARSHIPS -->
+          <article class="skill-card red-card">
+            <span class="skill-no">02</span>
+            <h3>HỌC BỔNG</h3>
+
+            <div class="skill-list">
+              <span>Năm học 2023 - 2024: 25%</span>
+              <span>Năm học 2024 - 2025: 50%</span>
+              <span>Năm học 2025 - 2026: 15%</span>
+            </div>
+
+            <div class="card-doodle">✳</div>
+          </article>
+
+          <!-- AWARDS -->
+          <article class="skill-card">
+            <span class="skill-no">03</span>
+            <h3>DANH HIỆU & KHEN THƯỞNG</h3>
+
+            <div class="skill-list">
+              <span>Sinh viên 5 tốt cấp Trường – 2026</span>
+              <span>Sinh viên 5 tốt cấp Khoa – 2026</span>
+              <span>Thanh niên tiên tiến làm theo lời Bác – 2026</span>
+            </div>
+
+            <div class="card-doodle">✳</div>
+          </article>
+
+        </div>
+
+        <p class="tiny-hint">
+          Small steps, meaningful progress ✿
+        </p>
+
+      </div>
+    </section>
+
+    <!-- MY STRENGTHS -->
+    <section class="section" id="strengths">
+      <div class="container">
+
+        <div class="section-top">
+          <span>04 / MY STRENGTHS</span>
+          <span>PERSONAL QUALITIES</span>
+        </div>
+
+        <h2 class="section-title">
+          Những điều làm nên <em>mình.</em>
+        </h2>
+
+        <p class="section-intro">
+          Mình tin rằng mỗi người đều có những điểm mạnh riêng.
+          Qua học tập và hoạt động tập thể, mình luôn cố gắng
+          phát huy những điều tích cực và cải thiện bản thân.
+        </p>
+
+        <div class="strength-grid">
+
+          <article class="strength-item">
+            <div class="icon">✳</div>
+            <h3>Tinh thần trách nhiệm</h3>
+            <p>
+              Luôn cố gắng hoàn thành công việc được giao,
+              chủ động theo dõi tiến độ và có trách nhiệm
+              với nhiệm vụ của mình.
+            </p>
+          </article>
+
+          <article class="strength-item">
+            <div class="icon">♡</div>
+            <h3>Tinh thần tập thể</h3>
+            <p>
+              Sẵn sàng lắng nghe, chia sẻ và phối hợp với mọi người
+              để cùng hướng đến mục tiêu chung.
+            </p>
+          </article>
+
+          <article class="strength-item">
+            <div class="icon">✿</div>
+            <h3>Khả năng thích nghi</h3>
+            <p>
+              Luôn sẵn sàng học hỏi những điều mới,
+              thử sức với các vai trò khác nhau và thích nghi
+              với môi trường làm việc.
+            </p>
+          </article>
+
+          <article class="strength-item">
+            <div class="icon">✦</div>
+            <h3>Tinh thần học hỏi</h3>
+            <p>
+              Xem mỗi trải nghiệm là cơ hội để tích lũy kiến thức,
+              rèn luyện kỹ năng và hoàn thiện bản thân.
+            </p>
+          </article>
+
+        </div>
+
+        <p class="tiny-hint">
+          Always learning, always growing.
+        </p>
+
+      </div>
+    </section>
+
+    <!-- MY PERSPECTIVE -->
+    <section class="section" id="perspective">
+      <div class="container">
+
+        <div class="section-top">
+          <span>05 / MY PERSPECTIVE</span>
+          <span>THOUGHTS & VALUES</span>
+        </div>
+
+        <h2 class="section-title">
+          Góc nhìn của mình về <em>Đoàn – Hội.</em>
+        </h2>
+
+        <div class="quote-box">
+          <p>
+            "Không chỉ là tham gia,<br>
+            mà còn là cùng nhau tạo nên giá trị."
+          </p>
+        </div>
+
+        <div class="perspective-grid">
+
+          <article class="perspective-card">
+            <h3>Đoàn – Hội trong mắt mình</h3>
+            <p>
+              Với mình, Đoàn – Hội là môi trường để sinh viên
+              được kết nối, trải nghiệm, phát triển bản thân
+              và thể hiện tinh thần trách nhiệm với cộng đồng.
+              Đây không chỉ là nơi tổ chức các hoạt động mà còn
+              là nơi mỗi sinh viên có thể tìm thấy cơ hội để
+              học hỏi và trưởng thành.
+            </p>
+          </article>
+
+          <article class="perspective-card">
+            <h3>Điều mình trân trọng</h3>
+            <p>
+              Mình trân trọng tinh thần nhiệt huyết, sự đoàn kết
+              và những đóng góp thầm lặng của các bạn sinh viên
+              trong từng chương trình. Đằng sau mỗi hoạt động
+              là sự chuẩn bị, phối hợp và nỗ lực của rất nhiều người.
+            </p>
+          </article>
+
+          <article class="perspective-card">
+            <h3>Điều mình mong muốn</h3>
+            <p>
+              Mình mong muốn tiếp tục được đồng hành trong các
+              hoạt động Đoàn – Hội, có thêm cơ hội đóng góp ý tưởng,
+              tham gia tổ chức chương trình và lan tỏa những
+              giá trị tích cực đến sinh viên.
+            </p>
+          </article>
+
+          <article class="perspective-card">
+            <h3>Giá trị mình hướng đến</h3>
+            <p>
+              Mình hy vọng có thể góp phần xây dựng một môi trường
+              sinh viên năng động, cởi mở và gắn kết, nơi mỗi người
+              đều cảm thấy mình được lắng nghe, được tôn trọng
+              và có cơ hội phát triển.
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- LEADERSHIP -->
+    <section class="leadership" id="leadership">
+      <div class="container">
+
+        <div class="section-top">
+          <span>06 / LEADERSHIP</span>
+          <span>MY VISION AS A LEADER</span>
+        </div>
+
+        <h2 class="section-title">
+          Nếu là người dẫn dắt,<br>
+          <em>mình sẽ bắt đầu từ việc lắng nghe.</em>
+        </h2>
+
+        <div class="leadership-content">
+
+          <div>
+            <p>
+              Nếu có cơ hội đảm nhận vai trò người dẫn dắt,
+              điều đầu tiên mình muốn làm là xây dựng một môi trường
+              mà ở đó mỗi sinh viên đều cảm thấy tiếng nói của mình
+              được tôn trọng.
+            </p>
+
+            <p>
+              Mình nghĩ một tập thể mạnh không chỉ được tạo nên
+              bởi những người đứng đầu, mà còn bởi sự tham gia,
+              đóng góp và đồng hành của tất cả thành viên.
+            </p>
+
+            <p>
+              Vì vậy, mình muốn trở thành người kết nối,
+              tạo điều kiện để các bạn tự tin chia sẻ suy nghĩ,
+              đề xuất ý tưởng và cùng nhau biến những mong muốn
+              phù hợp thành hành động thực tế.
+            </p>
+          </div>
+
+          <div>
+            <ul class="leadership-points">
+              <li>
+                <strong>Lắng nghe:</strong> Tạo cơ hội để sinh viên
+                chia sẻ ý kiến và nguyện vọng một cách cởi mở.
+              </li>
+
+              <li>
+                <strong>Tôn trọng:</strong> Ghi nhận những góc nhìn
+                khác nhau, không áp đặt suy nghĩ cá nhân.
+              </li>
+
+              <li>
+                <strong>Kết nối:</strong> Tăng cường sự tương tác
+                giữa sinh viên, các câu lạc bộ và tổ chức.
+              </li>
+
+              <li>
+                <strong>Hành động:</strong> Chuyển những ý tưởng
+                phù hợp thành hoạt động cụ thể và thiết thực.
+              </li>
+
+              <li>
+                <strong>Đồng hành:</strong> Khuyến khích các bạn
+                chủ động tham gia và phát triển năng lực của mình.
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <div class="leadership-slogan">
+          Let Every Voice Be Heard.
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <div class="container">
+
+        <div class="section-top">
+          <span>07 / CONTACT</span>
+          <span>LET'S CONNECT</span>
+        </div>
+
+        <h2 class="section-title">
+          Cảm ơn vì đã <em>lắng nghe!</em>
+        </h2>
+
+        <div class="contact-grid">
+
+          <div class="contact-note">
+            <h3>One more thing...</h3>
+            <p>
+              Cảm ơn thầy cô và các anh chị đã dành thời gian
+              tìm hiểu về mình. Mình hy vọng sẽ có cơ hội được
+              học hỏi, đồng hành và đóng góp nhiều hơn trong
+              các hoạt động sắp tới.
+            </p>
+            <p class="handwriting" style="margin-top: 18px; color: #d94d32; font-size: 21px;">
+              See you around! ♡
+            </p>
+          </div>
+
+          <div class="contact-info">
+            <p><strong>HỌ VÀ TÊN:</strong> Lê Đặng Thảo Ngọc</p>
+
+            <p>
+              <strong>EMAIL VLU:</strong>
+              <a href="mailto:[EMAIL_CUA_BAN]">ngoc.2374802010340@vanlanguni.vn</a>
+            </p>
+
+            <p>
+              <strong>EMAIL CÁ NHÂN:</strong>
+              <a href="mailto:[EMAIL_CUA_BAN]">ngocjthaor1911@gmail.com</a>
+            </p>
+
+            <p><strong>TRƯỜNG:</strong> Đại học Văn Lang</p>
+
+            <p><strong>NGÀNH:</strong> Công nghệ Thông tin</p>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <div class="footer-name">Lê Đặng Thảo Ngọc ✳</div>
+      <p>MADE WITH CARE · PERSONAL PORTFOLIO · 2026</p>
+    </div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Lên đầu trang">
+    ↑
+  </button>
+
+  <script>
+    // Mobile menu
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("active");
+      menuToggle.textContent =
+        navLinks.classList.contains("active") ? "×" : "☰";
+    });
+
+    // Close menu after clicking a link
+    document.querySelectorAll(".nav-links a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("active");
+        menuToggle.textContent = "☰";
+      });
+    });
+
+    // Back to top button
+    const backTop = document.getElementById("backTop");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 400) {
+        backTop.classList.add("show");
+      } else {
+        backTop.classList.remove("show");
+      }
+    });
+
+    backTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+      });
+    });
+  </script>
+
+</body>
+</html>
